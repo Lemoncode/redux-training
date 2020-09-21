@@ -289,16 +289,14 @@ ReactDOM.render(
 
 ```
 
-## Time
+## Time to play :)
 
-- Excercise A: port this li list to a table,break it down into table
-  and row.
+- Excercise A: let's build a Rick & Morty table based on this API:
 
-- Excercise B: repeat the same steps but hitting the following
-  rest api:
+https://rickandmortyapi.com/
 
-https://jsonplaceholder.typicode.com/users
+https://rickandmortyapi.com/api/character/
 
-And include filter
+- Excercise B: Let's add a filter option to allow filtering by character name (filter + load button)
 
-https://jsonplaceholder.typicode.com/users?name_like=${filter}
+https://rickandmortyapi.com/api/character/?name=mo
