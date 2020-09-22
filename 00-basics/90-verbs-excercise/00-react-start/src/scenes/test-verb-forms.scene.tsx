@@ -1,5 +1,7 @@
+import { current } from 'immer';
 import React from 'react';
+import { TestVerbFormContainer } from 'pods/test-verb-forms';
 
 export const TestVerbFormsScene: React.FC = () => {
-  return <h1>Hello from test verb forms scene</h1>;
+  return <TestVerbFormContainer />;
 };
