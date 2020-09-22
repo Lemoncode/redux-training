@@ -1,5 +1,5 @@
 import { VerbEntityGlobal } from 'core/verbs';
-import { Verb } from './test-verb-forms.vm';
+import { Verb, VerbQuiz } from './test-verb-forms.vm';
 
 // TODO: maybe add some defensive programming here? edge cases / errors ?
 export const pickRandomVerb = (
@@ -18,4 +18,28 @@ export const pickRandomVerb = (
   return {
     ...verb,
   };
+};
+
+const verbToLower = (verb: Verb): Verb => ({
+  infinitive: verb.infinitive.toLowerCase(),
+  past: verb.past.toLowerCase(),
+  participle: verb.participle.toLowerCase(),
+  translation: verb.translation.toLowerCase(),
+});
+
+const quizToLower = (quiz: VerbQuiz) => ({
+  past: quiz.past.toLowerCase(),
+  participle: quiz.participle.toLowerCase(),
+  translation: quiz.translation.toLowerCase(),
+});
+
+export const answerIsCorrect = (verb: Verb, quiz: VerbQuiz) => {
+  const verbLower = verbToLower(verb);
+  const quizLower = quizToLower(quiz);
+
+  return (
+    verbLower.past === quizLower.past &&
+    verbLower.participle === quizLower.participle &&
+    verbLower.translation === quizLower.translation
+  );
 };

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { TestVerbFormComponent } from './test-verb-forms.component';
-import { Verb } from './test-verb-forms.vm';
+import { Verb, VerbQuiz } from './test-verb-forms.vm';
 import { globalVerbsContext } from 'core/verbs';
 import { pickRandomVerb } from './test-verb-forms.business';
 
@@ -16,6 +16,7 @@ export const TestVerbFormContainer = () => {
     past: '',
     translation: '',
   });
+
 
   React.useEffect(() => {
     // TODO:: if we havent' reached the top calculate new question
