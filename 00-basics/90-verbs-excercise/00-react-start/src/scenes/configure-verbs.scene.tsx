@@ -1,5 +1,10 @@
 import React from 'react';
+import { ConfigureVerbsContainer } from 'pods/configure-verbs';
 
 export const ConfigureVerbsScene: React.FC = () => {
-  return <h1>Helo from configure verbs</h1>;
+  return (
+    <>
+      <ConfigureVerbsContainer />
+    </>
+  );
 };

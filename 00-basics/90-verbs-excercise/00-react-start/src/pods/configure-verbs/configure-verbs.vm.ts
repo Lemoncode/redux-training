@@ -1,4 +1,5 @@
-interface VerbEntity {
-   verbKey : string;
-   verbDescription : string;
+export interface VerbEntity {
+  selected: boolean;
+  verbKey: string;
+  verbDescription: string;
 }

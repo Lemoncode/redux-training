@@ -12,23 +12,22 @@ export const RouterComponent: React.FunctionComponent = () => {
   return (
     <Router>
       <Switch>
-        <Route exact={true} path={[switchRoutes.root]} component={HomeScene} />
+        <Route exact={true} path={switchRoutes.root} component={HomeScene} />
         <Route
           exact={true}
-          path={[switchRoutes.configureVerbs]}
+          path={switchRoutes.configureVerbs}
           component={ConfigureVerbsScene}
         />
         <Route
           exact={true}
-          path={[switchRoutes.finalScore]}
+          path={switchRoutes.finalScore}
           component={FinalScoreScene}
         />
         <Route
           exact={true}
-          path={[switchRoutes.testVerbForms]}
+          path={switchRoutes.testVerbForms}
           component={TestVerbFormsScene}
         />
-        <Route exact={true} path={[switchRoutes.root]} component={HomeScene} />
       </Switch>
     </Router>
   );

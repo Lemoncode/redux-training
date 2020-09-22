@@ -10,7 +10,7 @@ export const HomeComponent = () => {
       <div>
         <Link to={routes.testVerbForms}>Start Test + participle tenses</Link>
       </div>
-      <Link to={routes.testVerbForms}>Configure Verb List</Link>
+      <Link to={routes.configureVerbs}>Configure Verb List</Link>
     </div>
   );
 };

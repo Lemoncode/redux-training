@@ -2,7 +2,6 @@ import { generatePath } from 'react-router-dom';
 
 interface SwitchRoutes {
   root: string;
-  login: string;
   testVerbForms: string;
   finalScore: string;
   configureVerbs: string;
@@ -10,10 +9,9 @@ interface SwitchRoutes {
 
 export const switchRoutes: SwitchRoutes = {
   root: '/',
-  login: '/login',
   testVerbForms: '/test-forms',
   finalScore: '/final-score',
-  configureVerbs: 'configure-verbs',
+  configureVerbs: '/configure-verbs',
 };
 
 interface Routes extends Omit<SwitchRoutes, 'editEmployee'> {}
