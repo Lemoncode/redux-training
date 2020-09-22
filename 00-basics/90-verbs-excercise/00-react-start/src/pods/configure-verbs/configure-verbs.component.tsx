@@ -11,10 +11,11 @@ import produce, { immerable } from 'immer';
 interface Props {
   verbCollection: VerbEntity[];
   onSave: (verbs: VerbEntity[]) => void;
+  onCancel: () => void;
 }
 
 export const ConfigureVerbsComponent: React.FC<Props> = props => {
-  const { verbCollection, onSave } = props;
+  const { verbCollection, onSave, onCancel } = props;
   const [temporalSelection, setTemporalSelection] = React.useState(
     verbCollection
   );
@@ -47,6 +48,10 @@ export const ConfigureVerbsComponent: React.FC<Props> = props => {
       >
         Save
       </Button>
+      <Button variant="contained" color="secondary" onClick={onCancel}>
+        Cancel
+      </Button>
+
       <ul>
         {temporalSelection.map(verb => (
           <li key={verb.verbKey}>
