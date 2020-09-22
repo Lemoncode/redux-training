@@ -14,14 +14,41 @@ interface Props {
 
 export const TestVerbFormComponent: React.FC<Props> = props => {
   const { currentQuestion, totalQuestion, onNextQuestion, verb } = props;
+  const [validated, setValidated] = React.useState(false);
+
+  const handleValidateAnswer = () => {
+    setValidated(true);
+  };
+
+  const internalHandleOnNextQuestion = () => {
+    setValidated(false);
+    onNextQuestion();
+  };
+
   return (
     <div>
       <h1>Question {`${currentQuestion} / ${totalQuestions}`}</h1>
-      <span>{verb.infinitive}</span>
+      <div>
+        <span>{verb.infinitive}</span>
+      </div>
 
-      <Button onClick={onNextQuestion} variant="contained" color="primary">
-        Next verb
-      </Button>
+      {validated ? (
+        <Button
+          onClick={internalHandleOnNextQuestion}
+          variant="contained"
+          color="primary"
+        >
+          Next verb
+        </Button>
+      ) : (
+        <Button
+          onClick={handleValidateAnswer}
+          variant="contained"
+          color="primary"
+        >
+          Validate
+        </Button>
+      )}
     </div>
   );
 };
