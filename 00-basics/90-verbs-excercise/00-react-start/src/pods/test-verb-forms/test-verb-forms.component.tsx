@@ -6,18 +6,24 @@ import { TextFieldComponent } from 'common/components';
 import { answerIsCorrect } from './test-verb-forms.business';
 import { ShowResults } from './components';
 
-// TODO: Move to const this could be configured maybe in profile context
-const totalQuestions = 20;
-
 interface Props {
   currentQuestion: number;
-  totalQuestion: number;
+  totalQuestions: number;
   onNextQuestion: () => void;
   verb: Verb;
+  score: number;
+  setScore: (value: number) => void;
 }
 
 export const TestVerbFormComponent: React.FC<Props> = props => {
-  const { currentQuestion, totalQuestion, onNextQuestion, verb } = props;
+  const {
+    currentQuestion,
+    totalQuestions,
+    onNextQuestion,
+    verb,
+    score,
+    setScore,
+  } = props;
   const [isCorrect, setIsCorrect] = React.useState(false);
   const [validated, setValidated] = React.useState(false);
 
@@ -26,7 +32,11 @@ export const TestVerbFormComponent: React.FC<Props> = props => {
   );
 
   const handleValidateAnswer = (values: VerbQuiz) => {
-    setIsCorrect(answerIsCorrect(verb, values));
+    const isCorrect = answerIsCorrect(verb, values);
+    if (isCorrect) {
+      setScore(score + 1);
+    }
+    setIsCorrect(isCorrect);
     setValidated(true);
   };
 

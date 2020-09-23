@@ -3,13 +3,16 @@ import { hot } from 'react-hot-loader/root';
 import { RouterComponent } from 'core/router';
 import { ThemeProviderComponent } from 'core/theme';
 import { GlobalVerbsProvider } from 'core/verbs';
+import { ScoreProvider } from 'core/score';
 
 const App: React.FunctionComponent = () => {
   return (
     <ThemeProviderComponent>
-      <GlobalVerbsProvider>
-        <RouterComponent />
-      </GlobalVerbsProvider>
+      <ScoreProvider>
+        <GlobalVerbsProvider>
+          <RouterComponent />
+        </GlobalVerbsProvider>
+      </ScoreProvider>
     </ThemeProviderComponent>
   );
 };

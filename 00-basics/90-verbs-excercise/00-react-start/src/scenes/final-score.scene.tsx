@@ -1,5 +1,6 @@
 import React from 'react';
+import { FinalScoreContainer } from 'pods/final-score';
 
 export const FinalScoreScene: React.FC = () => {
-  return <h1>Hello from final score scene</h1>;
+  return <FinalScoreContainer />;
 };
