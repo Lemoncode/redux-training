@@ -8,7 +8,7 @@ import { routes } from 'core/router';
 import { scoreContext } from 'core/score';
 
 // TODO: Move to const this could be configured maybe in profile context
-const totalQuestions = 5;
+const totalQuestions = 20;
 
 export const TestVerbFormContainer = () => {
   const history = useHistory();
