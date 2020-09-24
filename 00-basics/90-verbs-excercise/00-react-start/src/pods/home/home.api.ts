@@ -19,6 +19,12 @@ const verbCollection: VerbEntityApi[] = [
     translation: 'despertar(se)',
   },
   {
+    infinitive: 'be',
+    past: 'was/were',
+    participle: 'been',
+    translation: 'ser, estar',
+  },
+  {
     infinitive: 'bear',
     past: 'bore',
     participle: 'borne',
@@ -125,6 +131,12 @@ const verbCollection: VerbEntityApi[] = [
     past: 'bought',
     participle: 'bought',
     translation: 'comprar',
+  },
+  {
+    infinitive: 'can',
+    past: 'could',
+    participle: 'been able',
+    translation: 'poder',
   },
   {
     infinitive: 'cast',

@@ -58,13 +58,14 @@ export const TestVerbFormComponent: React.FC<Props> = props => {
       >
         {() => (
           <Form>
-            <div>
-              <span>{verb.translation}</span>
-              <TextFieldComponent name="infinitive" label="infinitive" />
-              <TextFieldComponent name="past" label="Past" />
-              <TextFieldComponent name="participle" label="Participle" />
-            </div>
-
+            {!validated && (
+              <div>
+                <span>{verb.translation}</span>
+                <TextFieldComponent name="infinitive" label="infinitive" />
+                <TextFieldComponent name="past" label="Past" />
+                <TextFieldComponent name="participle" label="Participle" />
+              </div>
+            )}
             {validated ? (
               <>
                 <ShowResults succeeded={isCorrect} verb={verb} />

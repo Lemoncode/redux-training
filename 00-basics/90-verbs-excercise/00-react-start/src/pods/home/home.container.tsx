@@ -12,6 +12,7 @@ export const HomeContainer = () => {
 
     // TODO: store this in local storage
     verbsContext.setSelectedVerbs([
+      'be',
       'bear',
       'beat',
       'become',
@@ -24,6 +25,7 @@ export const HomeContainer = () => {
       'burn',
       'burst',
       'buy',
+      'can',
       'catch',
       'choose',
       'come',
