@@ -30,7 +30,7 @@ const verbToLower = (verb: Verb): Verb => ({
 const quizToLower = (quiz: VerbQuiz) => ({
   past: quiz.past.toLowerCase(),
   participle: quiz.participle.toLowerCase(),
-  translation: quiz.translation.toLowerCase(),
+  infinitive: quiz.infinitive.toLowerCase(),
 });
 
 export const answerIsCorrect = (verb: Verb, quiz: VerbQuiz) => {
@@ -40,6 +40,6 @@ export const answerIsCorrect = (verb: Verb, quiz: VerbQuiz) => {
   return (
     verbLower.past === quizLower.past &&
     verbLower.participle === quizLower.participle &&
-    verbLower.translation === quizLower.translation
+    verbLower.infinitive === quizLower.infinitive
   );
 };
