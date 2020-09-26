@@ -1,14 +1,14 @@
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
 import { HomeComponent } from './home.component';
-import { loadFullVerbCollection } from './home.api.vm';
 import { globalVerbsContext } from 'core/verbs';
+import { LoadFullListOfVerbsRequestStart } from 'core/actions';
 
 export const HomeContainer = () => {
-  const verbsContext = React.useContext(globalVerbsContext);
+  const dispatch = useDispatch();
 
   const loadAllVerbs = async () => {
-    const fullVerbCollection = await loadFullVerbCollection();
-    verbsContext.setVerbCollection(fullVerbCollection);
+    dispatch(LoadFullListOfVerbsRequestStart());
   };
 
   // Let's load the full list of verbs

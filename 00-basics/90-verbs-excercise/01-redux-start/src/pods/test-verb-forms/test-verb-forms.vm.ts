@@ -6,13 +6,13 @@ export interface Verb {
 }
 
 export interface VerbQuiz {
+  infinitive: string;
   past: string;
   participle: string;
-  translation: string;
 }
 
 export const createDefaultVerbQuiz = (): VerbQuiz => ({
+  infinitive: '',
   past: '',
   participle: '',
-  translation: '',
 });

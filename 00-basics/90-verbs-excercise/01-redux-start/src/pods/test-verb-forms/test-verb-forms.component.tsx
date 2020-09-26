@@ -59,10 +59,10 @@ export const TestVerbFormComponent: React.FC<Props> = props => {
         {() => (
           <Form>
             <div>
-              <span>{verb.infinitive}</span>
+              <span>{verb.translation}</span>
+              <TextFieldComponent name="infinitive" label="Infinitive" />
               <TextFieldComponent name="past" label="Past" />
               <TextFieldComponent name="participle" label="Participle" />
-              <TextFieldComponent name="translation" label="Translation" />
             </div>
 
             {validated ? (
