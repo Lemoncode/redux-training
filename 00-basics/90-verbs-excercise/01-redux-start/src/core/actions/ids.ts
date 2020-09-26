@@ -1,4 +1,4 @@
 const prefix = '[GLOBAL]';
 export const actionIds = {
-  setVerbsCollectionRequestCompleted: `${prefix}[0] Load full list of verbs`,
+  setVerbsCollectionRequestCompleted: `${prefix}[0] Load full list of verbs request completed`,
 };
