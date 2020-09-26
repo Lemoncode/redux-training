@@ -1,4 +1,4 @@
-import * as stateModel from '../reducers';
+import * as stateModel from './verb-collection.state.model';
 import * as api from './verbs-list.api';
 
 const mapVerbFromApiToVm = (

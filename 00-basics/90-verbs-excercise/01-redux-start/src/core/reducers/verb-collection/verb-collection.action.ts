@@ -1,8 +1,7 @@
-export * from './ids';
-import { actionIds } from './ids';
-import { ActionBase } from '../base';
-import { VerbEntityState } from '../reducers';
-import { loadFullVerbCollection } from '../api/verbs-list.api.state';
+import { actionIds } from '../action-ids';
+import { ActionBase } from 'core/base';
+import { VerbEntityState } from './verb-collection.state.model';
+import { loadFullVerbCollection } from './verbs-list.api.state';
 
 export const LoadFullListOfVerbsRequestStart = () => dispatcher => {
   const promise = loadFullVerbCollection();

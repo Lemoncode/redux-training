@@ -1,9 +1,9 @@
 import {
   VerbCollectionState,
   createDefaultVerbCollection,
-} from './state.model';
-import { ActionBase } from '../base';
-import { actionIds } from 'core/actions';
+} from './verb-collection.state.model';
+import { ActionBase } from '../../base';
+import { actionIds } from '../action-ids';
 
 export const verbCollectionReducer = (
   state: VerbCollectionState = createDefaultVerbCollection(),

@@ -1,4 +1,4 @@
-import * as state from 'core/reducers/state.model';
+import * as state from 'core/reducers/verb-collection/verb-collection.state.model';
 import * as vm from 'core/verbs';
 
 export const mapVerbFromStateToVm = (
