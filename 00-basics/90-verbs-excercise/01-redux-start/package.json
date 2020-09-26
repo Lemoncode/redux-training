@@ -48,7 +48,8 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "regenerator-runtime": "^0.13.3"
+    "regenerator-runtime": "^0.13.3",
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.4",
