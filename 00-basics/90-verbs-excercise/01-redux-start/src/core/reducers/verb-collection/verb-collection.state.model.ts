@@ -7,3 +7,6 @@ export interface VerbEntityState {
 
 export type VerbCollectionState = VerbEntityState[];
 export const createDefaultVerbCollection = (): VerbEntityState[] => [];
+
+
+

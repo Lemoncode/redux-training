@@ -1,10 +1,10 @@
-import { VerbEntityGlobal } from 'core/verbs';
+import * as state from 'core/reducers';
 import { Verb, VerbQuiz } from './test-verb-forms.vm';
 
 // TODO: maybe add some defensive programming here? edge cases / errors ?
 export const pickRandomVerb = (
   selectedVerbs: string[],
-  verbs: VerbEntityGlobal[]
+  verbs: state.VerbCollectionState
 ): Verb => {
   const allVerbs = selectedVerbs.length === 0;
   const arrayLength = allVerbs ? verbs.length : selectedVerbs.length;

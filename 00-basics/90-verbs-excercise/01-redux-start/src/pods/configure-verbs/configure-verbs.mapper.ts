@@ -1,8 +1,8 @@
-import * as api from 'core/verbs';
+import * as state from 'core/reducers';
 import * as vm from './configure-verbs.vm';
 
 const mapFromVerbFromGlobalToVm = (
-  verb: api.VerbEntityGlobal,
+  verb: state.VerbEntityState,
   selection: string[]
 ): vm.VerbEntity => ({
   selected: selection.findIndex(v => v === verb.infinitive) !== -1,
@@ -11,7 +11,7 @@ const mapFromVerbFromGlobalToVm = (
 });
 
 export const mapFromVerbCollectionFromGlobalToVm = (
-  collection: api.VerbEntityGlobal[],
+  collection: state.VerbCollectionState,
   selection: string[]
 ): vm.VerbEntity[] =>
   collection.map(item => mapFromVerbFromGlobalToVm(item, selection));

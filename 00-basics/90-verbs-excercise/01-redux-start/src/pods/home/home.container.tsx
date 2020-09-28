@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { HomeComponent } from './home.component';
-import { globalVerbsContext } from 'core/verbs';
 import { LoadFullListOfVerbsRequestStart } from 'core/actions';
 
 export const HomeContainer = () => {

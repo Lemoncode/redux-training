@@ -1,29 +1,18 @@
 import * as React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { VerbEntity } from './configure-verbs.vm';
 import { mapFromVerbCollectionFromGlobalToVm } from './configure-verbs.mapper';
 import { ConfigureVerbsComponent } from './configure-verbs.component';
 import { routes } from 'core/router';
-import { selectVerbCollection } from './configuer-verbs.selector';
+import { selectVerbCollection } from './configure-verbs.selector';
+import { setVerbCollectionSelection } from 'core/actions';
 
 export const ConfigureVerbsContainer = () => {
   const history = useHistory();
-  //const verbsContext = React.useContext(globalVerbsContext);
-  //const [verbsCollection, setVerbsCollection] = React.useState<VerbEntity[]>(
-  //  []
-  //);
 
   const verbsCollection = useSelector(selectVerbCollection);
-  /*
-  React.useEffect(() => {
-    const verbs = mapFromVerbCollectionFromGlobalToVm(
-      verbsContext.verbCollection,
-      verbsContext.selectedVerbs
-    );
-    setVerbsCollection(verbs);
-  }, []);
-*/
+  const dispatch = useDispatch();
 
   const handleSave = (verbs: VerbEntity[]) => {
     const selectionKeys = verbs.reduce(
@@ -33,6 +22,7 @@ export const ConfigureVerbsContainer = () => {
 
     // TODO Dispatch and action to update the selected verb reducer
     //verbsContext.setSelectedVerbs(selectionKeys);
+    dispatch(setVerbCollectionSelection(selectionKeys))
     history.push(routes.root);
   };
 

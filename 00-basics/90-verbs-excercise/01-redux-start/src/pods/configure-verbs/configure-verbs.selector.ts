@@ -12,6 +12,5 @@ export const selectVerbCollection: Selector<
 > = createSelector(
   (state: GlobalState) => state,
   state =>
-    // Right now selection is empty, TODO: Build Reducer for this
-    mapFromVerbCollectionFromGlobalToVm(state.verbCollectionState, [])
+    mapFromVerbCollectionFromGlobalToVm(state.verbCollectionState, state.selectionCollectionState)
 );
