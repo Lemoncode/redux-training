@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { FinalScoreComponent } from './final-score.component';
 import { scoreContext } from 'core/score';
+import { useDispatch, useSelector } from 'react-redux';
+import { GlobalState } from 'core/reducers';
 
 export const FinalScoreContainer = () => {
-  const { score } = React.useContext(scoreContext);
+  const { totalQuestions, correctQuestions } = useSelector(
+    (state: GlobalState) => state.scoreState
+  );
 
   return (
-    <FinalScoreComponent
-      total={score.totalQuestions}
-      correct={score.answeredCorrectly}
-    />
+    <FinalScoreComponent total={totalQuestions} correct={correctQuestions} />
   );
 };

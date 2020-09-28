@@ -12,7 +12,7 @@ interface Props {
   onNextQuestion: () => void;
   verb: Verb;
   score: number;
-  setScore: (value: number) => void;
+  incrementScore: () => void;
 }
 
 export const TestVerbFormComponent: React.FC<Props> = props => {
@@ -22,7 +22,7 @@ export const TestVerbFormComponent: React.FC<Props> = props => {
     onNextQuestion,
     verb,
     score,
-    setScore,
+    incrementScore,
   } = props;
   const [isCorrect, setIsCorrect] = React.useState(false);
   const [validated, setValidated] = React.useState(false);
@@ -34,7 +34,7 @@ export const TestVerbFormComponent: React.FC<Props> = props => {
   const handleValidateAnswer = (values: VerbQuiz) => {
     const isCorrect = answerIsCorrect(verb, values);
     if (isCorrect) {
-      setScore(score + 1);
+      incrementScore();
     }
     setIsCorrect(isCorrect);
     setValidated(true);

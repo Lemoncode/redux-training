@@ -1,15 +1,18 @@
 import * as React from 'react';
 import { TestVerbFormComponent } from './test-verb-forms.component';
 import { Verb, VerbQuiz } from './test-verb-forms.vm';
-import { pickRandomVerb } from './test-verb-forms.business';
+import { answerIsCorrect, pickRandomVerb } from './test-verb-forms.business';
 import { useHistory } from 'react-router-dom';
 import { routes } from 'core/router';
 import { scoreContext } from 'core/score';
-import { useSelector } from 'react-redux';
-import { GlobalState } from 'core/reducers';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  GlobalState,
+  resetScore,
+  AddCorrectResponseToScore,
+} from 'core/reducers';
 
 // TODO: Move to const this could be configured maybe in profile context
-const totalQuestions = 20;
 
 export const TestVerbFormContainer = () => {
   const history = useHistory();
@@ -21,7 +24,11 @@ export const TestVerbFormContainer = () => {
     (state: GlobalState) => state.selectionCollectionState
   );
 
-  const { setScore } = React.useContext(scoreContext);
+  const { correctQuestions, totalQuestions } = useSelector(
+    (state: GlobalState) => state.scoreState
+  );
+  const dispatch = useDispatch();
+
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const [currentVerb, setCurrentVerb] = React.useState<Verb>({
     infinitive: '',
@@ -29,10 +36,13 @@ export const TestVerbFormContainer = () => {
     past: '',
     translation: '',
   });
-  const [currentScore, setCurrentScore] = React.useState(0);
+
+  const incrementScore = () => {
+    dispatch(AddCorrectResponseToScore())
+ }
 
   React.useEffect(() => {
-    setScore({ totalQuestions, answeredCorrectly: 0 });
+    dispatch(resetScore());
   }, []);
 
   React.useEffect(() => {
@@ -47,7 +57,6 @@ export const TestVerbFormContainer = () => {
     if (currentQuestion !== totalQuestions) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      setScore({ totalQuestions, answeredCorrectly: currentScore });
       history.push(routes.finalScore);
     }
   };
@@ -58,8 +67,8 @@ export const TestVerbFormContainer = () => {
       totalQuestions={totalQuestions}
       onNextQuestion={handleSetNextQuestion}
       verb={currentVerb}
-      score={currentScore}
-      setScore={setCurrentScore}
+      score={correctQuestions}
+      incrementScore={incrementScore}
     />
   );
 };
